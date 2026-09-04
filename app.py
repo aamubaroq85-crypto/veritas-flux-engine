@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime, timedelta
 
 # Konfigurasi Halaman
 st.set_page_config(page_title="Veritas Flux Engine", page_icon="⚡", layout="wide")
@@ -9,19 +8,18 @@ st.title("⚡ Veritas Flux Engine")
 st.subheader("Autonomous Ledger Integrity & Entropic Discrepancy Detector")
 st.markdown("---")
 
-# Data Simulasi (Mock Data) untuk Demo Instan via HP
-@st.cache_data
+# Data Simulasi (Mock Data)
 pencatatan_bank = pd.DataFrame([
     {"id": "B001", "date": "2026-09-04", "amount": 15000000.0, "desc": "TRSF E-BANKING PT MAJU MUNDUR"},
     {"id": "B002", "date": "2026-09-04", "amount": 2500000.0, "desc": "QRIS SETTLEMENT STORE A"},
-    {"id": "B003", "date": "2026-09-03", "amount": 4500.0, "desc": "BIAYA ADMIN BANK"}, # Anomali/Selisih
+    {"id": "B003", "date": "2026-09-03", "amount": 4500.0, "desc": "BIAYA ADMIN BANK"},
     {"id": "B004", "date": "2026-09-04", "amount": 50000000.0, "desc": "PAYMENT INVOICE #992"}
 ])
 
 pencatatan_ledger = pd.DataFrame([
     {"id": "L001", "date": "2026-09-04", "amount": 15000000.0, "memo": "Pelunasan Piutang PT Maju"},
     {"id": "L002", "date": "2026-09-04", "amount": 2500000.0, "memo": "Pendapatan QRIS Cabang Utama"},
-    {"id": "L003", "date": "2026-09-04", "amount": 48000000.0, "memo": "Invoice #991 (Salah Nominal)"} # Selisih
+    {"id": "L003", "date": "2026-09-04", "amount": 48000000.0, "memo": "Invoice #991 (Salah Nominal)"}
 ])
 
 # Sidebar Kontrol
